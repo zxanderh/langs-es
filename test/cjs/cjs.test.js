@@ -1,4 +1,4 @@
-const langs = require('langs');
+const langs = require('langs-es');
 const assert = require('chai').assert;
 const sharedTests = require('../sharedTests.cjs');
 

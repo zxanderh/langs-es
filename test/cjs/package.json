@@ -1,6 +1,6 @@
 {
   "type": "commonjs",
   "dependencies": {
-    "langs": "file:../../"
+    "langs-es": "file:../../"
   }
 }

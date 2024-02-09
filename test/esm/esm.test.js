@@ -1,4 +1,4 @@
-import langs from 'langs';
+import langs from 'langs-es';
 import { assert } from 'chai';
 import sharedTests from '../sharedTests.cjs';
 

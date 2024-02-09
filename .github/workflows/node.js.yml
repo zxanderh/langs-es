@@ -19,6 +19,7 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 16
+    - run: npm ci
     - run: npm run lint
 
   test:
@@ -35,6 +36,7 @@ jobs:
       with:
         node-version: 16
     - run: npm ci
+    - run: npm run postinstall
     - run: npm run build
     - name: Test with Node ${{ matrix.node-version }}
       uses: actions/setup-node@v3
