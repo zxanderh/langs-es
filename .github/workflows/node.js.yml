@@ -10,13 +10,23 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  lint:
+    runs-on: ubuntu-latest
 
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node 16
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+    - run: npm run lint
+
+  test:
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [8, 12, 16, 18, 20]
+        node-version: [10, 16, 18, 20]
 
     steps:
     - uses: actions/checkout@v3
