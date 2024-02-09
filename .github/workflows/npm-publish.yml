@@ -7,6 +7,9 @@ on:
   release:
     types: [created]
 
+env:
+  NODE_ENV: development
+
 jobs:
   build:
     runs-on: ubuntu-latest
