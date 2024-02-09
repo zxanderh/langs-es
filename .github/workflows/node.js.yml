@@ -25,12 +25,8 @@ jobs:
     - run: npm ci
     - run: npm run lint
 
-  test:
+  test_10:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16, 18, 20]
 
     steps:
     - uses: actions/checkout@v3
@@ -47,6 +43,23 @@ jobs:
         node-version: 10
         cache: 'npm'
     - run: npm run test-cjs
+
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16, 18, 20]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build with Node 16
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+    - run: npm ci
+    - run: npm run postinstall
+    - run: npm run build
     - name: Test with Node ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
