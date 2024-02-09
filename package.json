@@ -32,6 +32,7 @@
   "scripts": {
     "postinstall": "node util/postinstall.js",
     "test": "mocha test/cjs test/esm",
+    "test-cjs": "mocha test/cjs",
     "build": "unbuild",
     "lint": "node util/lint.js"
   },

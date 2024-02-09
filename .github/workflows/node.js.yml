@@ -30,7 +30,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10, 16, 18, 20]
+        node-version: [16, 18, 20]
 
     steps:
     - uses: actions/checkout@v3
@@ -41,6 +41,12 @@ jobs:
     - run: npm ci
     - run: npm run postinstall
     - run: npm run build
+    - name: Test with Node 10
+      uses: actions/setup-node@v3
+      with:
+        node-version: 10
+        cache: 'npm'
+    - run: npm run test-cjs
     - name: Test with Node ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
