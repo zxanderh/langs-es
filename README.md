@@ -152,8 +152,8 @@ You can find a copy of this license in
 
 <!-- Links -->
 [npm]: https://npmjs.org/package/langs-es
-[ico-license]: http://img.shields.io/npm/l/langs.svg?style=flat
-[ico-package]: http://img.shields.io/npm/v/langs.svg?style=flat
+[ico-license]: http://img.shields.io/npm/l/langs-es.svg?style=flat
+[ico-package]: http://img.shields.io/npm/v/langs-es.svg?style=flat
 [license]: /LICENSE
 [wiki-macro]: http://en.wikipedia.org/wiki/ISO_639_macrolanguage
 [langs-git]: https://github.com/adlawson/langs.js
