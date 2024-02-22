@@ -9,7 +9,7 @@
 This library provides ISO 639-1/2/3 language codes with English and local
 names.
 
-Forked from [langs][langs-git] to support both CommonJS and ES modules.
+Forked from [langs][langs-git].
 
 ## Installation
 
@@ -40,8 +40,10 @@ import langs from 'langs-es';
 
 langs.all();
 // [
-//     { name: 'English', local: 'English', '1': 'en', '2': 'eng', 2T: 'eng', 2B: 'eng', '3': 'eng' },
-//     { name: 'Korean', local: '한국어', '1': 'ko', '2': 'kor', 2T: 'kor', 2B: 'kor', '3': 'kor' },
+//     { name: 'English', local: 'English', '1': 'en', '2': 'eng', 2T: 'eng', 2B: 'eng',
+//       '3': 'eng', invertedName: 'English', refName: 'English', scope: 'I', type: 'L' },
+//     { name: 'Korean', local: '한국어', '1': 'ko', '2': 'kor', 2T: 'kor', 2B: 'kor',
+//       '3': 'kor', invertedName: 'Korean', refName: 'Korean', scope: 'I', type: 'L' },
 //     ...
 // ]
 
@@ -88,25 +90,32 @@ langs.codes('3');
 // ]
 
 langs.where('name', 'Korean');
-// { name: 'Korean', local: '한국어', '1': 'ko', '2': 'kor', 2T: 'kor', 2B: 'kor', '3': 'kor' }
+// { name: 'Korean', local: '한국어', '1': 'ko', '2': 'kor', 2T: 'kor', 2B: 'kor',
+//   '3': 'kor', invertedName: 'Korean', refName: 'Korean', scope: 'I', type: 'L' }
 
 langs.where('local', '한국어, 조선어');
-// { name: 'Korean', local: '한국어', '1': 'ko', '2': 'kor', 2T: 'kor', 2B: 'kor', '3': 'kor' }
+// { name: 'Korean', local: '한국어', '1': 'ko', '2': 'kor', 2T: 'kor', 2B: 'kor',
+//   '3': 'kor', invertedName: 'Korean', refName: 'Korean', scope: 'I', type: 'L' }
 
 langs.where('1', 'ko');
-// { name: 'Korean', local: '한국어', '1': 'ko', '2': 'kor', 2T: 'kor', 2B: 'kor', '3': 'kor' }
+// { name: 'Korean', local: '한국어', '1': 'ko', '2': 'kor', 2T: 'kor', 2B: 'kor',
+//   '3': 'kor', invertedName: 'Korean', refName: 'Korean', scope: 'I', type: 'L' }
 
 langs.where('2', 'kor');
-// { name: 'Korean', local: '한국어', '1': 'ko', '2': 'kor', 2T: 'kor', 2B: 'kor', '3': 'kor' }
+// { name: 'Korean', local: '한국어', '1': 'ko', '2': 'kor', 2T: 'kor', 2B: 'kor',
+//   '3': 'kor', invertedName: 'Korean', refName: 'Korean', scope: 'I', type: 'L' }
 
 langs.where('2T', 'kor');
-// { name: 'Korean', local: '한국어', '1': 'ko', '2': 'kor', 2T: 'kor', 2B: 'kor', '3': 'kor' }
+// { name: 'Korean', local: '한국어', '1': 'ko', '2': 'kor', 2T: 'kor', 2B: 'kor',
+//   '3': 'kor', invertedName: 'Korean', refName: 'Korean', scope: 'I', type: 'L' }
 
 langs.where('2B', 'kor');
-// { name: 'Korean', local: '한국어', '1': 'ko', '2': 'kor', 2T: 'kor', 2B: 'kor', '3': 'kor' }
+// { name: 'Korean', local: '한국어', '1': 'ko', '2': 'kor', 2T: 'kor', 2B: 'kor',
+//   '3': 'kor', invertedName: 'Korean', refName: 'Korean', scope: 'I', type: 'L' }
 
 langs.where('3', 'kor');
-// { name: 'Korean', local: '한국어', '1': 'ko', '2': 'kor', 2T: 'kor', 2B: 'kor', '3': 'kor' }
+// { name: 'Korean', local: '한국어', '1': 'ko', '2': 'kor', 2T: 'kor', 2B: 'kor',
+//   '3': 'kor', invertedName: 'Korean', refName: 'Korean', scope: 'I', type: 'L' }
 
 langs.has('name', 'Korean');
 // true
@@ -137,14 +146,29 @@ langs.has('high', 'fives');
 ```
 
 ## Contributing
-Contributions are welcome! Please include passing unit
-tests in your pull request.
+Contributions are welcome via pull request on [github][langs-es-git]. Please run unit
+tests and linter locally prior to submitting your pull request.
 
 ```bash
-$ npm test
+git clone git@github.com:zxanderh/langs-es.git
+cd ./langs-es
+npm i
+# make your changes
+npm lint
+npm run build
+npm test
 ```
 
-### License
+### Generating `src/data.ts`
+The file containing all of the language code data is automatically generated using
+tables downloaded from the [official ISO-639-3 website](https://www.iso639-3.sil.org).
+These tables do not change often, but when they do, a new data file can be generated
+with `npm run generate`.  
+
+By default, the generator will save the tables to be reused in future runs. To force
+the generator to download fresh copies of the tables, use `npm run generate --- --fetch`.
+
+## License
 The content of this library is released under the **MIT License** by
 **Zane Huston** (forked from package by **Andrew Lawson**).  
 You can find a copy of this license in
@@ -157,3 +181,4 @@ You can find a copy of this license in
 [license]: /LICENSE
 [wiki-macro]: http://en.wikipedia.org/wiki/ISO_639_macrolanguage
 [langs-git]: https://github.com/adlawson/langs.js
+[langs-es-git]: https://github.com/zxanderh/langs-es

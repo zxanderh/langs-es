@@ -31,6 +31,7 @@ module.exports = {
     quotes: [
       'error',
       'single',
+      { avoidEscape: true },
     ],
     semi: [
       'error',
@@ -58,6 +59,7 @@ module.exports = {
     ],
     'no-trailing-spaces': [
       'warn',
+      { ignoreComments: true },
     ],
   },
   overrides: [{
