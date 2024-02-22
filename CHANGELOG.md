@@ -9,6 +9,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
+### Changed
+### Deprecated
+### Removed
+### Fixed
+### Security
+### Dev
+---
+<br>
+
+## [v4.0.0]
+### Added
  - NOTICE file citing iso639-3.sil.org as the source of the codes, per their [terms of use](https://iso639-3.sil.org/code_tables/download_tables#termsofuse)
  - additional data from ISO 639, including invertedName, refName, scope, and type
  - living() function
@@ -16,16 +27,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - changelog
 ### Changed
  - support es5 (in theory) for this version only
-### Deprecated
-### Removed
-### Fixed
 ### Security
  - fixed vulnerable dev dependencies
 ### Dev
  - added automatic generation of data
  - updated eslintrc
----
-<br>
 
 ## [v3.0.0]
 ### Added
