@@ -60,7 +60,6 @@ export function codes(part: string | number) {
       return codes;
     }, []);
   }
-  return [];
 }
 
 /**
