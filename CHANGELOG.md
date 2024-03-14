@@ -18,6 +18,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ---
 <br>
 
+## [v4.0.2]
+### Changed
+ - don't publish npm-shrinkwrap.json
+
 ## [v4.0.1]
 ### Fixed
  - error running postinstall
