@@ -7,7 +7,7 @@ const color = {
   Reset: '\x1b[0m',
 };
 
-if (process.env.NODE_ENV === 'development') {
+if (existsSync(new URL('../test', import.meta.url))) {
   const cjsLinked = existsSync(new URL('../test/cjs/node_modules', import.meta.url));
   const esmLinked = existsSync(new URL('../test/esm/node_modules', import.meta.url));
   if (cjsLinked && esmLinked) {

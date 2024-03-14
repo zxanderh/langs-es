@@ -18,6 +18,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ---
 <br>
 
+## [v4.0.1]
+### Fixed
+ - error running postinstall
+
 ## [v4.0.0]
 ### Added
  - NOTICE file citing iso639-3.sil.org as the source of the codes, per their [terms of use](https://iso639-3.sil.org/code_tables/download_tables#termsofuse)
