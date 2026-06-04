@@ -60,6 +60,6 @@ jobs:
     - uses: actions/download-artifact@v4
       with:
         name: node24-dist
-        path: .
+        path: dist
     - run: npm run prepare
     - run: npm test

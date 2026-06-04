@@ -42,7 +42,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: npm-package-dist
-          path: .
+          path: dist
       - run: rm -f ./npm-shrinkwrap.json
       - run: npm publish --ignore-scripts
         env:
