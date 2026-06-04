@@ -1,4 +1,5 @@
 import { existsSync, readFileSync, writeFileSync, unlinkSync } from 'node:fs';
+import { mkdir } from 'node:fs/promises';
 import got from 'got';
 import neat from 'neat-csv';
 import { camelCase } from 'lodash-es';
@@ -15,6 +16,10 @@ console.verbose = (...s) => { args.verbose && console.log('[verbose]', ...s); };
 
 async function readTab(fileName) {
   let tab;
+  const dirUrl = new URL('./data', import.meta.url);
+  if (!existsSync(dirUrl)) {
+    await mkdir(dirUrl);
+  }
   const fileUrl = new URL(`./data/${fileName}`, import.meta.url);
   if (existsSync(fileUrl) && !args.fetch) {
     console.log(`Using cached copy of ${fileName}`);

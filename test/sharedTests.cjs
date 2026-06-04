@@ -1,4 +1,3 @@
-/* eslint-disable mocha/no-exports */
 
 module.exports = function(langs, assert) {
   describe('langs:', function () {

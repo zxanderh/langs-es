@@ -18,6 +18,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ---
 <br>
 
+## [v4.1.0]
+### Changed
+ - switch from postinstall -> prepare
+ - updated to latest iso-639 data
+
 ## [v4.0.2]
 ### Changed
  - don't publish npm-shrinkwrap.json

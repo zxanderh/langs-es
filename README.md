@@ -163,14 +163,14 @@ npm test
 The file containing all of the language code data is automatically generated using
 tables downloaded from the [official ISO-639-3 website](https://www.iso639-3.sil.org).
 These tables do not change often, but when they do, a new data file can be generated
-with `npm run generate`.  
+with `npm run generate`.
 
 By default, the generator will save the tables to be reused in future runs. To force
 the generator to download fresh copies of the tables, use `npm run generate --- --fetch`.
 
 ## License
 The content of this library is released under the **MIT License** by
-**Zane Huston** (forked from package by **Andrew Lawson**).  
+**Zane Huston** (forked from package by **Andrew Lawson**).
 You can find a copy of this license in
 [`LICENSE`][license] or at [http://www.opensource.org/licenses/mit](http://www.opensource.org/licenses/mit).
 

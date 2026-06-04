@@ -1,6 +1,6 @@
 {
   "name": "langs-es",
-  "version": "4.0.2",
+  "version": "4.1.0",
   "description": "ISO 639-1/2/3 Language codes with English and local names",
   "keywords": [
     "639",
@@ -32,12 +32,12 @@
     "util/postinstall.js"
   ],
   "scripts": {
-    "postinstall": "node util/postinstall.js",
+    "prepare": "node util/prepare.js",
     "test": "mocha test/cjs test/esm",
     "test-cjs": "mocha test/cjs",
     "generate": "node generator/generate.js",
     "build": "unbuild",
-    "lint": "node util/lint.js"
+    "lint": "eslint . --ext js,cjs,mjs,ts,md --max-warnings=0"
   },
   "repository": {
     "type": "git",
@@ -47,24 +47,26 @@
     "declaration": true
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.5",
+    "@eslint/js": "^10.0.1",
     "@types/lodash-es": "^4.17.12",
-    "@typescript-eslint/eslint-plugin": "^6.20.0",
-    "@typescript-eslint/parser": "^6.20.0",
-    "chai": "^4.4.1",
-    "eslint": "^8.56.0",
-    "eslint-plugin-mocha": "^10.2.0",
-    "got": "^12.6.1",
-    "lodash-es": "^4.17.21",
-    "markdownlint-cli": "^0.37.0",
-    "mocha": "^8.4.0",
+    "@typescript-eslint/eslint-plugin": "^8.60.1",
+    "@typescript-eslint/parser": "^8.60.1",
+    "chai": "^6.2.2",
+    "eslint": "^10.4.1",
+    "eslint-plugin-markdownlint": "^0.10.1",
+    "eslint-plugin-mocha": "^11.3.0",
+    "globals": "^17.6.0",
+    "got": "^15.0.5",
+    "lodash-es": "^4.18.1",
+    "markdownlint-cli": "^0.48.0",
+    "mocha": "^11.7.6",
     "neat-csv": "^7.0.0",
-    "typescript": "^5.3.3",
-    "unbuild": "^2.0.0"
+    "typescript": "^5.x",
+    "unbuild": "^3.6.1"
   },
-  "overrides": {
-    "mocha": {
-      "minimatch": "3.0.5",
-      "nanoid": "3.1.31"
-    }
+  "allowScripts": {
+    "esbuild": true,
+    "langs-es": true
   }
 }
