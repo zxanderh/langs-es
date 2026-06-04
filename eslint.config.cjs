@@ -63,7 +63,7 @@ module.exports = defineConfig([{
     'no-trailing-spaces': ['warn', {
       ignoreComments: true,
     }],
-    'no-var': false,
+    'no-var': 'off',
   },
 }, globalIgnores(['**/dist/']), {
   files: ['**/*.js', '**/*.cjs', '**/*.mjs'],
@@ -76,6 +76,7 @@ module.exports = defineConfig([{
   extends: compat.extends('plugin:@typescript-eslint/recommended'),
 
   rules: {
+    'no-var': 'off',
     '@typescript-eslint/no-unused-vars': ['warn'],
   },
 }, {

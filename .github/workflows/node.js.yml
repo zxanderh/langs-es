@@ -13,56 +13,53 @@ env:
   NODE_ENV: development
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build with Node 24
+      uses: actions/setup-node@v4
+      with:
+        node-version: 24
+    - run: npm i --ignore-scripts
+    - run: npm run build
+    - uses: actions/upload-artifact@v4
+      with:
+        name: node24-dist
+        path: dist
+        if-no-files-found: error
+
   lint:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node 16
-      uses: actions/setup-node@v3
+    - uses: actions/checkout@v4
+    - name: Use Node 24
+      uses: actions/setup-node@v4
       with:
-        node-version: 16
-    - run: npm ci
+        node-version: 24
+    - run: npm i --ignore-scripts
     - run: npm run lint
 
-  test_10:
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v3
-    - name: Build with Node 16
-      uses: actions/setup-node@v3
-      with:
-        node-version: 16
-    - run: npm ci
-    - run: npm run postinstall
-    - run: npm run build
-    - name: Test with Node 10
-      uses: actions/setup-node@v3
-      with:
-        node-version: 10
-        cache: 'npm'
-    - run: npm run test-cjs
-
   test:
+    needs: build
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [16, 18, 20]
+        node-version: [18, 20, 24]
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Build with Node 16
-      uses: actions/setup-node@v3
-      with:
-        node-version: 16
-    - run: npm ci
-    - run: npm run postinstall
-    - run: npm run build
+    - uses: actions/checkout@v4
     - name: Test with Node ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+    - run: npm i --ignore-scripts
+    - uses: actions/download-artifact@v4
+      with:
+        name: node24-dist
+        path: .
+    - run: npm run prepare
     - run: npm test

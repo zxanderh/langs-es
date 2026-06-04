@@ -18,8 +18,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ---
 <br>
 
-## [v4.1.0]
+## [v5.0.0]
 ### Changed
+ - dropped legacy Node support and now require Node 18+
  - switch from postinstall -> prepare
  - updated to latest iso-639 data
 

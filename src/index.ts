@@ -1,4 +1,3 @@
-/* eslint-disable no-var */
 import type { Language } from './language.interface';
 import data from './data';
 
